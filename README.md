@@ -8,13 +8,49 @@ Let’s Encrypt 的通配符证书，只能通过 ACME v2 协议获取。只要�
 
 ## 执行 generate.sh 脚本
 
-- 上面的命令使用 docker run 启动容器，启动后显示下面的交互界面。输入域名，如：\*.example.com，多个用空格隔开
+- 上面的命令使用 docker run 启动容器，启动后显示下面的交互界面。
 
 ```
 Saving debug log to /var/log/letsencrypt/letsencrypt.log
 Plugins selected: Authenticator manual, Installer None
+```
+
+- 输入邮箱
+
+```
+Enter email address (used for urgent renewal and security notices)
+ (Enter 'c' to cancel): your@email.com
+```
+
+- 同意条款
+
+```
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Please read the Terms of Service at
+https://letsencrypt.org/documents/LE-SA-v1.2-November-15-2017.pdf. You must
+agree in order to register with the ACME server at
+https://acme-v02.api.letsencrypt.org/directory
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+(A)gree/(C)ancel: A
+```
+
+- 是否愿意订阅邮件
+
+```
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Would you be willing to share your email address with the Electronic Frontier
+Foundation, a founding partner of the Let's Encrypt project and the non-profit
+organization that develops Certbot? We'd like to send you email about our work
+encrypting the web, EFF news, campaigns, and ways to support digital freedom.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+(Y)es/(N)o: N
+```
+
+- 输入域名，如：\*.example.com，多个用空格隔开
+
+```
 Please enter in your domain name(s) (comma and/or space separated)  (Enter 'c'
-to cancel):
+to cancel): example.com *.example.com
 ```
 
 - 输入 Y
@@ -27,7 +63,7 @@ your server, please ensure you're okay with that.
 
 Are you OK with your IP being logged?
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-(Y)es/(N)o:
+(Y)es/(N)o: Y
 ```
 
 - 在这里，需要给\_acme-challenge.example.com 配置一条 TXT 记录，记录值配置成上面显示的 \_k7-p0Y1oZ_FwONLMLtodYlY2qT-VzBAd5p4K8gu3pY
